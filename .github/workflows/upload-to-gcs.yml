@@ -44,8 +44,8 @@ jobs:
         echo "Changed files: $CHANGED_FILES"
         CHANGED_FOLDERS=$(echo "$CHANGED_FILES" | sed 's|/[^/]*$||' | sort | uniq)
         gsutil -m cp -r ./Files/Tp/* gs://github-action-gcs/Files/
-        rm -rf ./Files/*
-        git rm -r ./Files/*
+        rm -rf ./Files/Tp/
+        git rm -r ./Files/Tp
     
     - name: Commit changes
       env:
