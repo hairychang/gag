@@ -48,7 +48,7 @@ jobs:
         git rm -r ./Files/*
     
     - name: Commit changes
-      with:
+      env:
         GITHUB_TOKEN: ${{ secrets.HUB_TOKEN }}
       run: |
         git commit -m "Remove folder via GitHub Actions"
