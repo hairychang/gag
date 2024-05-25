@@ -19,11 +19,12 @@ jobs:
     - uses: actions/checkout@v2
 
     # Setup gcloud CLI
-    - uses: google-github-actions/setup-gcloud@v0
+     - name: Set up Cloud SDK
+      uses: google-github-actions/setup-gcloud@master
       with:
-        service_account_email: ${{ secrets.GCP_SA_EMAIL }}
-        service_account_key: ${{ secrets.CGP_SA_KEY }}
+        version: 'latest'
         project_id: ${{ secrets.GCP_PROJECT_ID }}
+        service_account_key: ${{ secrets.GCP_KEY_FILE }}
 
     - name: Deploy via GCS
       run: |
