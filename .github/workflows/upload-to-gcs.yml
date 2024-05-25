@@ -52,7 +52,7 @@ jobs:
         git commit -m "Remove folder via GitHub Actions"
         git push
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.HUB_TOKEN }}
 
         
 # gsutil -m rm -rf gs://github-action-gcs/Files/ || echo "$?"
