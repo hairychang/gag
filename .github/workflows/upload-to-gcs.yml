@@ -25,11 +25,15 @@ jobs:
         service_account_key: ${{ secrets.CGP_SA_KEY }}
         project_id: ${{ secrets.GCP_PROJECT_ID }}
 
-    - name: Get folder name and last update time
-      id: folder-info
+    - name: List changed files
+      id: changed-files
       run: |
-        FOLDER_NAME="./tp/"
-        echo "Folder Name: $FOLDER_NAME"
+        # 獲取上次提交和當前提交的差異
+        CHANGED_FILES=$(git diff --name-only HEAD~1 HEAD)
+        echo "Changed files: $CHANGED_FILES"
+
+        # 將變更的文件設置為輸出
+        echo "::set-output name=files::$CHANGED_FILES"
 
     - name: Deploy via GCS
       run: |
