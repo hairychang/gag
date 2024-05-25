@@ -32,7 +32,7 @@ jobs:
         fi
         echo "Changed files: $CHANGED_FILES"
 
-    Setup gcloud CLI
+    #Setup gcloud CLI
     - uses: google-github-actions/setup-gcloud@v0
       with:
         service_account_email: ${{ secrets.GCP_SA_EMAIL }}
