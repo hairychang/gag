@@ -18,7 +18,7 @@ jobs:
     # Checks-out your arepository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
 
-    Setup gcloud CLI
+    # Setup gcloud CLI
     - uses: google-github-actions/setup-gcloud@v0
       with:
         service_account_email: ${{ secrets.GCP_SA_EMAIL }}
