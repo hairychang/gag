@@ -27,6 +27,11 @@ jobs:
         service_account_key: ${{ secrets.CGP_SA_KEY }}
         project_id: ${{ secrets.GCP_PROJECT_ID }}
 
+    - name: Set up Git
+      run: |
+        git config --global user.name 'hairychang'
+        git config --global user.email 'alexchang19931219@gmail.com'
+
     - name: Deploy via GCS
       run: |
         # 獲取上次成功的提交和當前提交的差異
