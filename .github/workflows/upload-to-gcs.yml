@@ -38,9 +38,9 @@ jobs:
         fi
         echo "Changed files: $CHANGED_FILES"
         CHANGED_FOLDERS=$(echo "$CHANGED_FILES" | sed 's|/[^/]*$||' | sort | uniq)
-        gsutil -m cp -r ./Files/* gs://github-action-gcs/Files/
-        rm -f ./Files/*
-        git rm -f ./Files/*
+        gsutil -m cp -r ./Files/Tp/* gs://github-action-gcs/Files/
+        rm -rf ./Files/*
+        git rm -r ./Files/*
 
         
 # gsutil -m rm -rf gs://github-action-gcs/Files/ || echo "$?"
