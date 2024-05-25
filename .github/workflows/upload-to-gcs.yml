@@ -25,6 +25,12 @@ jobs:
         service_account_key: ${{ secrets.CGP_SA_KEY }}
         project_id: ${{ secrets.GCP_PROJECT_ID }}
 
+    - name: Get folder name and last update time
+      id: folder-info
+      run: |
+        FOLDER_NAME="./tp/"
+        echo "Folder Name: $FOLDER_NAME"
+
     - name: Deploy via GCS
       run: |
         gsutil -m cp -r ./tp/* gs://github-action-gcs/
